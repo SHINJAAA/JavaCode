@@ -49,7 +49,7 @@ public class StudentDemo{
 
         return tempStudent;
     }
-    public void displayStudent(Student aStudent)
+    public static void displayStudent(Student aStudent)
     {
      System.out.println("\nStudent#"+ aStudent.getStudenNum()+
              " belongs to "+ aStudent.getFirstName()+" "+ aStudent.getLastName());
