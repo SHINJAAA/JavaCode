@@ -1,4 +1,3 @@
-
 import java.util.*;
 class AmountDue{
     public  double computeAmountDue(double price){
@@ -29,19 +28,29 @@ class RunAmountDue {
         
         
       
-        if(ch ==1){
-        	due.computeAmountDue(scan.nextDouble());
+        switch (ch) {
+            case 1:
+                double total;
+                total=due.computeAmountDue(scan.nextDouble());
+                System.out.println("Amount due is "+total);
 
-        }
-        else if(ch ==2){
-        	due.computeAmountDue(scan.nextDouble(), scan.nextInt());
-
-        }
-        else if(ch ==3){
-        	 double total; 
-             total = due.computeAmountDue(scan.nextDouble(), scan.nextInt(), scan.nextInt());
-             System.out.println("Amount due is "+total);
-
+                break;
+            case 2:
+                {
+                    double total1;
+                    total1 = due.computeAmountDue(scan.nextDouble(), scan.nextInt());
+                    System.out.println("Amount due is "+total1);
+                    break;
+                }
+            case 3:
+                {
+                    double total2;
+                    total2 = due.computeAmountDue(scan.nextDouble(), scan.nextInt(), scan.nextInt());
+                    System.out.println("Amount due is "+total2);
+                    break;
+                }
+            default:
+                break;
         }
 
     }
