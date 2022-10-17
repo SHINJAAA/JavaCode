@@ -1,0 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javatest;
+
+/**
+ *
+ * @author C4-23
+ */
+    public class MyClass {
+        int x;
+    public MyClass(){
+        x= 7;
+    }
+ 
+    public static void main(String[] args) {
+        // TODO code application logic here
+        MyClass myObj = new MyClass();
+        System.out.println(myObj.x);
+    }
+    
+}
