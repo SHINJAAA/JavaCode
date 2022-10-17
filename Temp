@@ -1,0 +1,29 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication19;
+
+/**
+ *
+ * @author C4-23
+ */
+public class Temp {
+
+    Temp(){
+        this(5);
+        System.out.println("The Default constructor");
+    
+    }
+     Temp(int x){
+        this(5, 15);
+        System.out.println(x);
+    }
+      Temp(int x, int y){
+        System.out.println(x+y);
+    }
+    public static void main(String[] args) {
+        new Temp();
+    }
+    
+}
