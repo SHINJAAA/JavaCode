@@ -1,0 +1,249 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package handson;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
+/**
+ *
+ * @author Tejim
+ */
+public class EventDriven extends JFrame  {
+          //input
+         JTextField textFieldfname = new JTextField();
+         JTextField textFieldlname = new JTextField();
+         JTextField textFieldmname = new JTextField();
+         JTextField textFieldnum = new JTextField();
+         JTextField textFieldemail = new JTextField();
+         JPanel panel = new JPanel();
+         JFrame frame = new JFrame();
+
+         JButton submit = new JButton();
+         JButton clearAll = new JButton();
+         
+         //output
+         JFrame outputFrame = new JFrame();
+         JPanel otpanel = new JPanel();
+
+         
+
+    public EventDriven(){
+        
+        frame.setTitle("INPUT");
+        frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setSize(280,350);
+        
+        //firstname
+        JLabel firstname = new JLabel();
+        firstname.setText("First Name: ");
+        
+        textFieldfname.setPreferredSize(new Dimension(230, 25));
+        
+        //lastname
+        JLabel lastname = new JLabel();
+        lastname.setText("Last Name: ");
+        
+        textFieldlname.setPreferredSize(new Dimension(230, 25));
+        
+        //middlename
+        JLabel middlename = new JLabel();
+        middlename.setText("Middle Name: ");
+        
+        textFieldmname.setPreferredSize(new Dimension(230, 25));
+        
+        //mobile number
+        JLabel mobilenum = new JLabel();
+        mobilenum.setText("Mobile Number: ");
+        
+        textFieldnum.setPreferredSize(new Dimension(230, 25));
+        
+        //Email Address
+        JLabel email = new JLabel();
+        email.setText("Email Address: ");
+        
+        textFieldemail.setPreferredSize(new Dimension(230, 25));
+        
+        
+        //button
+     
+        submit.setBounds(200,100,100,100);
+        submit.setText("Submit");
+        submit.setPreferredSize(new Dimension(95, 30));
+        submit.setFocusable(false);
+        submit.addActionListener(new btnSubmit());
+        
+        clearAll.setBounds(200,100,100,200);
+        clearAll.setText("Clear All");
+        clearAll.setPreferredSize(new Dimension(95, 30));
+        clearAll.setFocusable(false);
+        clearAll.addActionListener((ActionListener) new btnClearAll());
+          
+        
+
+        //panel
+        panel.add(firstname);
+        panel.add(textFieldfname);
+        
+        panel.add(lastname);
+        panel.add(textFieldlname);
+        
+        panel.add(middlename);
+        panel.add(textFieldmname);
+        
+        panel.add(mobilenum);
+        panel.add(textFieldnum);
+        
+        panel.add(email);
+        panel.add(textFieldemail);
+        
+        panel.add(submit);
+        panel.add(clearAll);
+
+        panel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.setPreferredSize(new Dimension(300, 500));
+        panel.setMaximumSize(new Dimension(300, 500));
+        
+        //frame
+        frame.getContentPane().add(panel);
+        frame.setVisible(true);
+
+    }
+
+    private class btnOkay implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            submit.setEnabled(true);
+                textFieldfname.setText("");
+                textFieldlname.setText("");
+                textFieldmname.setText("");
+                textFieldnum.setText("");
+                textFieldemail.setText("");
+                
+               
+                otpanel.removeAll();
+                outputFrame.dispose();
+
+        }
+
+       
+    }
+   
+     
+        private class btnClearAll implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                submit.setEnabled(true);
+                textFieldfname.setText("");
+                textFieldlname.setText("");
+                textFieldmname.setText("");
+                textFieldnum.setText("");
+                textFieldemail.setText("");
+                otpanel.removeAll();
+                outputFrame.dispose();
+
+                
+                
+                
+        }
+    }
+        private class btnSubmit implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            submit.setEnabled(false);
+            outputFrame.setTitle("OUTPUT");
+            outputFrame.getContentPane().setLayout(new BoxLayout(outputFrame.getContentPane(), BoxLayout.Y_AXIS));
+            outputFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            outputFrame.setResizable(false);
+            outputFrame.setSize(350,280);
+            
+            otpanel.setLayout(null);
+
+            
+            JLabel firstname = new JLabel();
+            firstname.setText("First Name: ");
+            firstname.setBounds(10, 20, 80, 25);
+            JLabel displayF = new JLabel();
+            displayF.setBounds(100, 20, 165, 25);
+            displayF.setText(textFieldfname.getText());
+            
+            JLabel lastname = new JLabel();
+            lastname.setText("Last Name: ");
+            lastname.setBounds(10, 50, 80, 25);
+            JLabel displayL = new JLabel();
+            displayL.setBounds(100, 50, 165, 25);
+            displayL.setText(textFieldlname.getText());
+            
+            JLabel middle = new JLabel();
+            middle.setText("Middle Name: ");
+            middle.setBounds(10, 80, 80, 25);
+            JLabel displayM = new JLabel();
+            displayM.setBounds(100, 80, 165, 25);
+            displayM.setText(textFieldmname.getText());
+            
+            JLabel n = new JLabel();
+            n.setText("Mobile number: ");
+            n.setBounds(10, 110, 90, 25);
+            JLabel displayN = new JLabel();
+            displayN.setBounds(100, 110, 165, 25);
+            displayN.setText(textFieldnum.getText());
+            
+            JLabel email = new JLabel();
+            email.setText("Email address: ");
+            email.setBounds(10, 140, 90, 25);
+            JLabel displayE = new JLabel();
+            displayE.setBounds(100, 140, 165, 25);
+            displayE.setText(textFieldemail.getText());
+            
+            JButton btnOkay = new JButton();
+            btnOkay.setText("Okay");
+            btnOkay.setPreferredSize(new Dimension(95, 30));
+            btnOkay.setBounds(150, 170, 70, 50);
+            btnOkay.setFocusable(false);
+            btnOkay.addActionListener((ActionListener) new btnOkay());
+            
+            otpanel.add(firstname);
+            otpanel.add(displayF);
+            
+            otpanel.add(lastname);
+            otpanel.add(displayL);
+            
+            otpanel.add(middle);
+            otpanel.add(displayM);
+            
+            otpanel.add(n);
+            otpanel.add(displayN);
+            
+            otpanel.add(email);
+            otpanel.add(displayE);
+            
+            otpanel.add(btnOkay);
+            
+            outputFrame.add(otpanel);
+            outputFrame.setVisible(true);
+        }
+    }
+        
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        EventDriven eventDriven = new EventDriven();
+    }
+
+
+
+
+}
+
+    
