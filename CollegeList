@@ -1,0 +1,191 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package ptask;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Tejim
+ */
+
+class Person{
+    private String name;
+    private String ContactNum;
+
+    public Person() {
+    }
+    
+    public void setName(String n){
+        this.name = n;
+    }
+
+    public void setContactNum(String c) {
+        this.ContactNum = c;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContactNum() {
+        return ContactNum;
+    }
+    
+    
+}
+class Student extends Person{
+    private String program;
+    private int yearLevel;
+
+    public Student() {
+    }
+    
+    public void setProgram(String p) {
+        this.program = p;
+    }
+    public String getProgram() {
+        return program;
+    }
+    public void setYearLevel(int y) {
+        this.yearLevel = y;
+    }
+    public int getYearLevel() {
+        return yearLevel;
+    }
+    
+}
+class Employee extends Person{
+    private double salary;
+    private String department;
+
+    public Employee() {
+    }
+
+
+    public void setSalary(double s) {
+        this.salary = s;
+    }
+     public double getSalary() {
+        return salary;
+    }
+
+    public void setDepartment(String d) {
+        this.department = d;
+    }
+     public String getDepartment() {
+        return department;
+    }
+    
+}
+class Faculty extends Employee{
+    private boolean status;
+    boolean checkStat;
+    public Faculty() {
+    }
+    
+    public boolean isRegular(){
+        if(checkStat == true){
+            return status = true;
+        }
+        if(checkStat == false){
+            return status = false;
+        }
+     
+        return status;
+    }
+}
+
+public class CollegeList {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Press E for Employee, F for Faculty, or S for Student: ");
+        String ch = scan.nextLine();
+        
+
+      
+        
+        //employee
+        if(ch.equalsIgnoreCase("E")){
+            Employee employee = new Employee();
+
+            System.out.println("Type employee's name, contact number, salary and department.");
+            System.out.println("Press enter after every input.");
+            
+            employee.setName(scan.nextLine());
+            employee.setContactNum(scan.nextLine());
+            employee.setSalary(scan.nextDouble());
+            employee.setDepartment(scan.next());
+            
+            System.out.println("----------------------------------------------");
+            System.out.println("Name: "+employee.getName());
+            System.out.println("Contact Number: "+employee.getContactNum());
+            System.out.println("Salary: "+employee.getSalary());
+            System.out.println("Department: "+employee.getDepartment());
+
+        }
+        //faculty
+        else if(ch.equalsIgnoreCase("F")){
+            Faculty faculty = new Faculty();
+              
+            System.out.println("Press Y if the faculty member is regular/tenured or N if not.");
+            String status = scan.nextLine();
+            if(status.equalsIgnoreCase("y")){
+                faculty.checkStat = true;
+            }
+            else if(status.equalsIgnoreCase("n")){
+                faculty.checkStat = false;
+            }
+            
+            
+            System.out.println("Type faculty's name, contact number, salary, department and status.");
+            System.out.println("Press enter after every input.");
+            faculty.setName(scan.nextLine());
+            faculty.setContactNum(scan.nextLine());
+            faculty.setSalary(scan.nextDouble());
+            faculty.setDepartment(scan.next());
+              
+            System.out.println("----------------------------------------------");
+            System.out.println("Name: "+faculty.getName());
+            System.out.println("Contact number: "+faculty.getContactNum());
+            System.out.println("Salary: "+faculty.getSalary());
+            System.out.println("Department: "+faculty.getDepartment());
+            if (faculty.isRegular() == true) {
+            System.out.println("Status: Regular/Tenured");
+            } 
+            else if (faculty.isRegular() == false) {
+            System.out.println("Status: Not Regular/Tenured");
+            }
+            
+            
+           
+                
+        }
+        //student
+        else if(ch.equalsIgnoreCase("S")){
+            Student student = new Student();
+            
+            System.out.println("Type student's name, contact number, program and year level.");
+            System.out.println("Press enter after every input.");
+
+            student.setName(scan.nextLine());
+            student.setContactNum(scan.nextLine());
+            student.setProgram(scan.nextLine());
+            student.setYearLevel(scan.nextInt());
+            
+            System.out.println("----------------------------------------------");
+            System.out.println("Name: "+student.getName());
+            System.out.println("Contact number: "+student.getContactNum());
+            System.out.println("Program: "+student.getProgram());
+            System.out.println("Year Level: "+student.getYearLevel());
+        }
+    }
+    
+}
