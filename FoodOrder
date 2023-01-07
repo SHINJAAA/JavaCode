@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication1;
+
+/**
+ *
+ * @author client
+ */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+class Food{
+    public void breakfastMenu(){
+        System.out.println("Breakfast Menu: ");
+        System.out.println("1. Fried Rice");
+        System.out.println("2. Hotdog & Egg");
+        System.out.println("3. Tocino");
+        System.out.println("4. Tapsilog");
+        System.out.println("5. Longganisa");
+    }
+    public void lunchMenu(){
+        System.out.println("Lunch Menu: ");
+        System.out.println("Adobo");
+        System.out.println("Sinigang");
+        System.out.println("Chicken Curry");
+        System.out.println("Salmon Pepper Rice");
+    }
+     public void dinnerMenu() {
+         System.out.println("Dinner Menu: ");
+         System.out.println("1. Adobo");
+         System.out.println("2. Sinigang");
+         System.out.println("3. Beef Pares");
+         System.out.println("4. Pancit");
+    }
+}
+
+public class FoodOrder {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Food food = new Food();
+        
+        
+        GregorianCalendar time = new GregorianCalendar();
+        int hour = time.get(Calendar.HOUR_OF_DAY);
+
+
+        if (hour >= 0 && hour < 12){
+           System.out.println("Good Morning!");
+           System.out.println("--------------------");
+           food.breakfastMenu();
+          
+           
+        }
+        else if (hour >=12 && hour <=18){
+           System.out.println("Good Afternooon!");
+           System.out.println("--------------------");
+           food.lunchMenu();
+        }
+        else if(hour >=18 && hour <=23){
+           System.out.println("Good Evening!");
+           System.out.println("--------------------");
+           food.dinnerMenu();
+           
+        }
+    }
+}
+
